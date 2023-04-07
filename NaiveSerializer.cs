@@ -119,7 +119,7 @@ namespace homework13
 
          for (int i = 0; i < props.Length; i++)
          {
-
+            if (props[i].SetMethod == null || props[i].GetMethod == null) continue; //не будем читать, то что не сможем потом установить и наоборот (может так плохо делать?)
             var tp = props[i].PropertyType.GetTypeInfo();
             //посчитаем string простым типом, но это не так!
             if (tp.IsValueType || tp.FullName == "System.String")
@@ -183,7 +183,7 @@ namespace homework13
          
          for (int i = 0; i < props.Length && GetToken.MoveNext(); i++)
          {
-
+            if (props[i].SetMethod == null || props[i].GetMethod == null) continue; //не будем читать, то что не сможем потом установить и наоборот (может так плохо делать?)
             var tp = props[i].PropertyType.GetTypeInfo();
             //посчитаем string простым типом, но это не так!
             if (tp.FullName == "System.String")
